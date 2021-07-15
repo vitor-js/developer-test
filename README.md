@@ -11,12 +11,15 @@
         - Gênero (**obrigatório**)
         - E-mail (**obrigatório**)
         - Telefone (opcional)
-        ***
-        Sinta-se à vontade para ir além e incluir:
-        - Validação de campos obrigatórios;
-        - Validação de expressões regulares, como por exemplo, e-mail;
-        - Inclusão de máscaras, como por exemplo nos campos de CPF e Telefone;
-        ***
+
+    ***
+    Sinta-se à vontade para ir além e incluir:
+    - Validação de campos obrigatórios;
+    - Validação de expressões regulares, como por exemplo, e-mail;
+    - Inclusão de máscaras, como por exemplo nos campos de CPF e Telefone;
+
+    Utilize a lib/package de sua preferência.
+    ***
 
 2. Desenvolver página/processo para visualização dos detalhes do cliente cadastrado. A página de listagem exibe apenas um resumo do cliente. Ao clicar sobre um dos itens da lista, deverá redirecionar para uma página que apresente o cadastro completo do cliente.Uma dica é reutilizar a página de cadastro, mas modificando-a para que, neste caso, os inputs fiquem desabilitados pois se trata apenas de visualização de dados (e não edição).
 
