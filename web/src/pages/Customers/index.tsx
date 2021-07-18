@@ -5,6 +5,8 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import api from '../../services/api';
 import { Header, Form, Error, CustomersList } from './styles';
 
+import InputComponent from '../../components/formsComponents/inputText'
+
 interface Customer {
   id: number;
   firstName: string;
@@ -42,6 +44,10 @@ const Customers: React.FC = () => {
       setInputError('Erro na busca por esse repositório');
     }
   }
+  const [nameInput, setNameInput] = useState("");
+  const onChange = (str: string) => {
+    setNameInput(str);
+  };
 
   return (
     <>
@@ -53,18 +59,25 @@ const Customers: React.FC = () => {
         </Link>
       </Header>
 
-      <Form hasError={!!inputError} onSubmit={handleAddRepository}>
+      <InputComponent
+        onChange={onChange}
+        name="name"
+        placeholder="Enter your name"
+        value={nameInput}
+      />
+
+      {/* <Form hasError={!!inputError} onSubmit={handleAddRepository}>
         <input
           value={searchCustomer}
           onChange={(e) => setSearchCustomer(e.target.value)}
           placeholder="Pesquisar cliente pelo nome/sobrenome"
         />
         <button type="submit">Pesquisar</button>
-      </Form>
+      </Form> */}
 
-      {inputError && <Error>{inputError}</Error>}
+      {/* {inputError && <Error>{inputError}</Error>} */}
 
-      <CustomersList>
+      {/* <CustomersList>
         {customers.map((customer) => (
           <Link key={customer.id} to={`/customers/${customer.id}`}>
             <div>
@@ -75,7 +88,7 @@ const Customers: React.FC = () => {
             <FiChevronRight size={20} />
           </Link>
         ))}
-      </CustomersList>
+      </CustomersList> */}
     </>
   );
 };
