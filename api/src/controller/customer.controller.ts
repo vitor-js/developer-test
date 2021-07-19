@@ -21,6 +21,19 @@ export function getCustomer(req: Request, res: Response) {
     return res.json({data:customers})
 }
 
+export function getUserId(req: Request, res: Response) {
+    const {id} = req.params
+    try {
+        const customer = customers.find(customer => customer.id ===  parseInt(id))
+        if(!customer) {
+            return res.status(404).json({error:'Customer not found'})
+        }
+        return res.status(200).json({data:customer})
+    }catch (err) {
+        return res.status(500).json({error:`Internal error ${err}`})
+    }
+}
+
 export function createCustomer(req: Request, res: Response) {
     try {
         const {firstName,lastName,cpf,age,gender,email,phone,escolaridade} = req.body

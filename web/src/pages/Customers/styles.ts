@@ -1,9 +1,7 @@
 import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
-interface FormProps {
-  hasError: boolean;
-}
+
 
 export const Header = styled.header`
   display: flex;
@@ -23,9 +21,8 @@ export const Header = styled.header`
   }
 `;
 
-export const Form = styled.form<FormProps>`
+export const ContainerSearch = styled.div`
   margin-top: 40px;
-
   display: flex;
 
   input {
@@ -37,12 +34,6 @@ export const Form = styled.form<FormProps>`
     color: #3a3a3a;
     border: 2px solid #fff;
     border-right: 0;
-
-    ${(props) =>
-      props.hasError &&
-      css`
-        border-color: #c53030;
-      `}
 
     &::placeholder {
       color: #a8a8b3;
@@ -73,13 +64,32 @@ export const Error = styled.span`
 
 export const CustomersList = styled.div`
   margin-top: 80px;
+ 
+  
+  svg {
+    cursor: pointer;
+  }
+  .svg-trash {
+    color:#fd05055c;
+    transition: ease all .3s;
+    
+    &:hover {
+      color:#fd05058f;
+    }
+  }
+  .svg-search {
+    color:#145da06b;
+    transition: ease all .3s;
 
-  a {
+    &:hover {
+      color:#145da0;
+    }
+  }
+  div {
     background: #fff;
     border-radius: 5px;
     width: 100%;
     padding: 24px;
-    display: block;
     text-decoration: none;
 
     display: flex;
@@ -94,9 +104,11 @@ export const CustomersList = styled.div`
       margin-top: 16px;
     }
 
-    div {
+    .container-info-card {
       margin: 0 16px;
-      flex: 1;
+      display: flex;
+      align-items: baseline;
+      flex-direction: column;
 
       strong {
         font-size: 20px;
@@ -110,9 +122,8 @@ export const CustomersList = styled.div`
       }
     }
 
-    svg {
-      margin-left: auto;
-      color: #cbcbd6;
+    .container-info-card-buton {
+      justify-content: flex-end;
     }
   }
 `;
